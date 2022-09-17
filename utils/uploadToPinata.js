@@ -36,4 +36,15 @@ async function storeImages(imagesFilePath) {
 //     return null
 // }
 
-module.exports = { storeImages /*storeTokenUriMetadata*/ };
+async function storeTokenUriMetadata(metadata) {
+    try {
+        const response = await pinata.pinJSONToIPFS(metadata);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+
+    return null;
+}
+
+module.exports = { storeImages, storeTokenUriMetadata };
