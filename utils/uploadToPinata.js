@@ -26,14 +26,15 @@ async function storeImages(imagesFilePath) {
     return { responses, files };
 }
 
-// async function storeTokenUriMetadata(metadata) {
-//     try {
-//         const response = await pinata.pinJSONToIPFS(metadata)
-//         return response
-//     } catch (error) {
-//         console.log(error)
-//     }
-//     return null
-// }
+async function storeTokeUriMetadata(metadata) {
+    try {
+        const response = await pinata.pinJSONToIPFS(metadata)
+        return response
+    } catch (error) {
+        console.log(error)
+    }
+    
+    return null
+}
 
-module.exports = { storeImages /*storeTokenUriMetadata*/ };
+module.exports = { storeImages, storeTokenUriMetadata };
